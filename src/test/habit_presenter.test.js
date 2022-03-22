@@ -63,13 +63,23 @@ describe('HabitPresenter', ()=> {
         }).toThrow('number of habits cannot be over 3')
     })
 
-    it('resets all habit counts to 0', ()=> {
-        presenter.reset(update);
-        expect(presenter.getHabits()[0].count).toBe(0);
-        expect(presenter.getHabits()[1].count).toBe(0);
-        checkUpdateIsCalled();
-        
+    describe('reset', ()=> {
+        it('set all habit counts to 0', ()=> {
+            presenter.reset(update);
+            expect(presenter.getHabits()[0].count).toBe(0);
+            expect(presenter.getHabits()[1].count).toBe(0);
+            checkUpdateIsCalled();
+        })
+
+        it('does not create new object when count is 0', ()=> {
+            const habits = presenter.getHabits();
+            presenter.reset(update);
+            const updateHabits = presenter.getHabits();
+
+            expect(updateHabits[1]).toBe(habits[1]);
+        })
     })
+    
 
     function checkUpdateIsCalled(){
         expect(update).toHaveBeenCalledTimes(1);
