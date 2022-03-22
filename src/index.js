@@ -11,10 +11,12 @@ const habitPresenter = new HabitPresenter([
   { id: 3, name: 'Coding', count: 0 },
 ])
 
+const maxHabit = 10;
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App presenter={habitPresenter}/>
+    <App presenter={habitPresenter} maxHabit={maxHabit}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

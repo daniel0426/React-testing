@@ -1,8 +1,9 @@
 //logic for habit tracker UI
 
 export default class HabitPresenter {
-    constructor(habits){
+    constructor(habits, maxHabits){
         this.habits = habits;
+        this.maxHabits = maxHabits;
     }
 
     getHabits(){
@@ -23,7 +24,7 @@ export default class HabitPresenter {
     decrement(habit, update){
         this.habits = this.habits.map(item => {
             if (item.id === habit.id) {
-              const count = habit.count - 1;
+              const count = item.count - 1;
               return { ...habit, count: count < 0 ? 0 : count };
             }
             return item;
@@ -37,6 +38,9 @@ export default class HabitPresenter {
     }
 
     add(name, addHabit){
+      if(this.habits.length === this.maxHabits){
+        throw new Error(`number of habits cannot be over ${this.maxHabits}`)
+      }
         this.habits = [...this.habits, { id: Date.now(), name, count: 0 }]
         addHabit(this.habits);
     }
