@@ -1,6 +1,6 @@
 import React from 'react';
-import Habit from './habit';
-import HabitAddForm from './habitAddForm';
+import Habit from '../habit/habit';
+import HabitAddForm from '../form/habitAddForm';
 
 const Habits = ({ habits, onIncrement, onDecrement, onDelete, onAdd, onReset }) => {
   return (
@@ -16,7 +16,7 @@ const Habits = ({ habits, onIncrement, onDecrement, onDelete, onAdd, onReset }) 
             onDelete={onDelete}
           />
         ))}
-      </ul>
+      </ul> 
       <button className="habits-reset" onClick={onReset}>
         Reset All
       </button>

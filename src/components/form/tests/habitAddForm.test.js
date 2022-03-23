@@ -23,7 +23,7 @@ describe('HabitAddForm', ()=> {
             //Arrange
             render(<HabitAddForm onAdd={onAdd} />);
             input =  screen.getByPlaceholderText('Habit');
-            button= screen.getByText('Add Habit');
+            button= screen.getByText('Add');
         })
     
         it('calls onAdd when button is clicked and valid habit is entered', ()=> {

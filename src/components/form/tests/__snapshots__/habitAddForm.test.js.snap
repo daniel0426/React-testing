@@ -13,7 +13,7 @@ exports[`HabitAddForm renders 1`] = `
   <button
     className="add-button"
   >
-    Add Habit
+    Add
   </button>
 </form>
 `;
